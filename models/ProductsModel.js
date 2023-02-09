@@ -7,91 +7,91 @@ const Product = mongoose.Schema({
   },
   status: {
     type: String,
-    required: true,
+    required: false,
   },
   imported_t: {
     type: Date,
-    required: true,
+    required: false,
   },
   url: {
     type: String,
-    required: true,
+    required: false,
   },
   creator: {
-    type: Number,
-    required: true,
+    type: String,
+    required: false,
   },
   created_t: {
-    type: Number,
-    required: true,
+    type: Date,
+    required: false,
   },
   last_modified_t: {
     type: Number,
-    required: true,
+    required: false,
   },
   product_name: {
     type: String,
-    required: true,
+    required: false,
   },
   quantity: {
     type: String,
-    required: true,
+    required: false,
   },
   brands: {
     type: String,
-    required: true,
+    required: false,
   },
   categories: {
     type: String,
-    required: true,
+    required: false,
   },
   labels: {
     type: String,
-    required: true,
+    required: false,
   },
   cities: {
     type: String,
-    required: true,
+    required: false,
   },
   purchase_places: {
     type: String,
-    required: true,
+    required: false,
   },
   stores: {
     type: String,
-    required: true,
+    required: false,
   },
-  igredients_text: {
+  ingredients_text: {
     type: String,
-    required: true,
+    required: false,
   },
   traces: {
     type: String,
-    required: true,
+    required: false,
   },
   serving_size: {
     type: String,
-    required: true,
+    required: false,
   },
   serving_quantity: {
     type: Number,
-    required: true,
+    required: false,
   },
   nutriscore_score: {
     type: Number,
-    required: true,
+    required: false,
   },
   nutriscore_grade: {
     type: String,
-    required: true,
+    required: false,
   },
   main_category: {
     type: String,
-    required: true,
+    required: false,
   },
   image_url: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
