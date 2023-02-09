@@ -1,18 +1,19 @@
 import Products from "../models/ProductsModel.js";
 
+
 export const getDetails = async (req, res) => {
-    try {
-        const Products = await Products.find();
-        res.json(Products);
-    } catch (error) {
-        res.status(500).json({message: error.message});
-    }
+    // try {
+    //     const products = await Products.storageSize();
+    //     res.json(products);
+    // } catch (error) {
+    //     res.status(500).json({message: error.message});
+    // }
 }
 
 export const getProducts = async (req, res) => {
     try {
-        const Products = await Products.find();
-        res.json(Products);
+        const products = await Products.find();
+        res.json(products);
     } catch (error) {
         res.status(500).json({message: error.message});
     }
@@ -20,27 +21,18 @@ export const getProducts = async (req, res) => {
 
 export const getProductsByCode = async (req, res) => {
     try {
-        const Products = await Products.findById(req.params.code);
-        res.json(Products);
+        const products = await Products.find({code:req.params.code});
+        res.json(products);
     } catch (error) {
         res.status(404).json({message: error.message});
     }
 }
 
-export const putProducts = async (req, res) => {
-    const Products = new Products(req.body);
+export const  putProductsByCode = async (req, res) => {
+    const products = new Products(req.body);
     try {
-        const insertedProducts = await Products.save();
+        const insertedProducts = await products.save();
         res.status(201).json(insertedProducts);
-    } catch (error) {
-        res.status(400).json({message: error.message});
-    }
-}
-
-export const updateProducts = async (req, res) => {
-    try {
-        const updatedProducts = await Products.updateOne({_id:req.params.id}, {$set: req.body});
-        res.status(200).json(updatedProducts);
     } catch (error) {
         res.status(400).json({message: error.message});
     }
@@ -48,8 +40,8 @@ export const updateProducts = async (req, res) => {
 
 export const deleteProducts = async (req, res) => {
     try {
-        const deletedProducts = await Products.updateOne({_id:req.params.id}, {$set: "trash"});
-        res.status(200).json(deletedProducts);
+        const updatedProducts = await Products.updateOne({code:req.params.code}, {$set: {status: "trash"}});
+        res.status(200).json(updatedProducts);
     } catch (error) {
         res.status(400).json({message: error.message});
     }
