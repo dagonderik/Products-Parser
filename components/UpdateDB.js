@@ -1,6 +1,7 @@
 import axios from "axios";
 import zlib from "zlib";
 import { Readable } from "stream";
+import insertNewDocument from "./InsertNewDocument.js";
 
 const data = async () => {
   const response = await axios.get(
@@ -15,23 +16,18 @@ const data = async () => {
   let counter = 0;
   let dataString = "";
 
-
   stream
-    .on("data", (chunk) => {
-      if (counter > 2) {
+    .on("data", async (chunk) => {
+      if (counter > 40) {
         stream.destroy();
-        // console.log(dataString);
+        insertNewDocument(dataString);
       }
       dataString = dataString + chunk.toString();
-      // console.log(chunk.toString());
       counter++;
     })
     .on("end", () => {
       console.log("finished");
     });
-
-    
-    
 };
 
 export default data;
