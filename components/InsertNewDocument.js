@@ -8,8 +8,6 @@ const insertNewDocument = async (dataString) => {
 
   while (findSubstring(manipulatedString) && counter < 100) {
     newDocument = findSubstring(manipulatedString);
-    console.log(`Object ${counter}`);
-    console.log("");
     if (newDocument.slice(0, 1) == "{") {
       const product = JSON.parse(newDocument);
       await axios.put(
