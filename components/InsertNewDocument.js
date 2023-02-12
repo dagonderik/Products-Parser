@@ -4,9 +4,9 @@ import axios from "axios";
 const insertNewDocument = async (dataString) => {
   let newDocument = "";
   let manipulatedString = dataString;
-  let counter = 1;
+  let counter = 0;
 
-  while (findSubstring(manipulatedString)) {
+  while (findSubstring(manipulatedString) && counter < 100) {
     newDocument = findSubstring(manipulatedString);
     console.log(`Object ${counter}`);
     console.log("");
