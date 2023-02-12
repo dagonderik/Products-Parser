@@ -12,7 +12,6 @@ const insertNewDocument = async (dataString) => {
     console.log("");
     if (newDocument.slice(0, 1) == "{") {
       const product = JSON.parse(newDocument);
-      console.log(newDocument);
       await axios.put(
         `http://localhost:5000/products/${product.code}`,
         product
