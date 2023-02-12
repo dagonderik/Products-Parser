@@ -3,9 +3,9 @@ import zlib from "zlib";
 import { Readable } from "stream";
 import insertNewDocument from "./InsertNewDocument.js";
 
-const data = async () => {
+const data = async (url) => {
   const response = await axios.get(
-    "https://challenges.coode.sh/food/data/json/products_01.json.gz",
+    url,
     {
       responseType: "arraybuffer",
     }
