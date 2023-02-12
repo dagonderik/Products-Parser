@@ -21,8 +21,16 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
-data();
-
-cron.schedule("* * * * * *", () => {});
+cron.schedule("0 2 * * 0", async () => {
+  await data("https://challenges.coode.sh/food/data/json/products_01.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_02.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_03.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_04.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_05.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_06.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_07.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_08.json.gz");
+  await data("https://challenges.coode.sh/food/data/json/products_09.json.gz");
+});
 
 app.listen(5000, () => console.log("Server up and running..."));
