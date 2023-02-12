@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Product = mongoose.Schema({
   code: {
-    type: Number,
+    type: String,
     required: true,
   },
   status: {
@@ -26,7 +26,7 @@ const Product = mongoose.Schema({
     required: false,
   },
   last_modified_t: {
-    type: Number,
+    type: String,
     required: false,
   },
   product_name: {
@@ -74,11 +74,11 @@ const Product = mongoose.Schema({
     required: false,
   },
   serving_quantity: {
-    type: Number,
+    type: String,
     required: false,
   },
   nutriscore_score: {
-    type: Number,
+    type: String,
     required: false,
   },
   nutriscore_grade: {
