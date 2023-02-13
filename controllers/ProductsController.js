@@ -8,7 +8,6 @@ export const getDetails = async (req, res) => {
     await products.save();
     await Products.deleteOne({ code: testConnection.code });
     const lastUpdate = await Products.find().sort({ imported_t: -1}).limit(1);
-    console.log(lastUpdate);
     res.status(200).send(`Write/Read channels ok! The last update was made at ${lastUpdate[0].imported_t}`);
   } catch (error) {
     res.status(500).json({ message: error.message });
